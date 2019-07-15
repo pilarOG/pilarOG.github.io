@@ -64,7 +64,7 @@
     <div style="padding-top:16px;">
         We implemented different segmentations methods either based on audio or text to obtain datasets with different
         sequence length distributions and trained S2SA TTS models. Next we show training alignments for the failed models
-        described in Table 1.
+        described in Table 1. All sentences are different.
     </div>
 
     <table style="padding-top:16px;">
@@ -120,12 +120,22 @@
     </tbody></table>
 
     <div style="padding-top:16px;">
-        Analysis..
+        The training alignments are very interesting. We can see for VAD-1 and VAD-3 that attention changed from epoch
+        500 to 1000, specially at the beginning, showing that an alignment was starting to form. This might mean that
+        if trained for longer, these models might eventually learn a proper alignment. On the other hand, the binary
+        classifier seemed to have learnt a good alignment at the start but it fades out up to the end, while the
+        baseline shows an alignment for a very short sentence which seems quite strong. It seems then that the
+        learning of the attention is not indifferent to the chunking method used and to how clean it is.
+
     </div>
 
 
     <div style="padding-top:16px;">
-        These are samples for the failed models in Table 2.
+        These are samples for the failed models in Table 2. We can see that for the classifier and baseline models
+        some words can be recognized and at some portions a bit of structure, while the VAD models are clearly
+        generating random speech-like sounds. All these samples were synthesized using the code for speaker "DJ",
+        which only the baseline models seems to have learnt speaker characteristics. All sentences are different.
+
     </div>
 
     <table style="padding-top:16px;">
@@ -156,8 +166,8 @@
         <h3 style="padding-top:16px;"><a name="Single-reference">Part B: SYNTHESIZING LONG SEQUENCES</a></h3>
 
         <div style="padding-top:16px;">
-            These are training alignments for the "scheduled" model described in Table 3. Alignment of first
-            phase is not shown as it's almost unnoticeable.
+            These are training alignments for the "scheduled" model described in Table 3. The alignment of first
+            phase is not shown as it's almost unnoticeable, and all sentences are different.
         </div>
 
         <table style="padding-top:16px;">
@@ -207,7 +217,7 @@
         </tbody></table>
 
         <div style="padding-top:16px;">
-            Now we do a small analysis as the audio are very long and it's a bit hard to get all the small differences.
+            Next we highlight some interesting behaviour observed when comparing the two paragraphs.
         </div>
 
 
