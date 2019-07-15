@@ -1,886 +1,253 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Audio Samples</title>
-    <style>
-      body {
-        font-style: normal;
-        font-family: Arial;
-      }
-      .flex-row {
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-flex-wrap: nowrap;
-        -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-align-content: stretch;
-        -ms-flex-line-pack: stretch;
-        align-content: stretch;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-      .flex-column {
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-flex-wrap: nowrap;
-        -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-align-content: stretch;
-        -ms-flex-line-pack: stretch;
-        align-content: stretch;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-      .label-p {
-        text-align: center;
-        padding: 10px;
-        margin: 5px;
-        border-radius: 3px;
-      }
-      .audio {
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-<!-- Webpage -->
+<!-- saved from url=(0038)https://ttsdemos.github.io/paper3.html -->
+<html lang="en" class="gr__ttsdemos_github_io"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-
-<h1 style="text-align:center;">Copy synth audio samples</h1>
-
-
-<!-- Row  LJ SPEECH -->
-<h3 style="text-align:center; padding-top: 20px;">
-  LJ Speech
-</h3>
-<div class="flex-row">
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Original
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TTS Demos</title>
+    <link rel="stylesheet" href="./TTS Demos_files/style.css">
+</head>
+<body data-gr-c-s-loaded="true">
+<!-- Part 1: Title, Abstract and Introduction -->
+<div>
+    <div>
+        <h1>
+            Samples for "Investigating sequence length in sequence-to-sequence with attention text-to-speech trained on spontaneous speech"
+            poster presented at the Speech Processing Crete Courses, 2019
+        </h1>
     </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="originals/traditional_LJ001-0001.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/traditional_LJ001-0002.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/traditional_LJ001-0003.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/traditional_LJ001-0004.wav">
-      </audio>
+    <div style="padding-top:16px;">
+        <b>Author:</b>&nbsp;&nbsp;Pilar Oplustil
     </div>
-  </div>
 
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      WORLD
+    <div style="padding-top:16px;"><h2>Abstract</h2></div>
+    <div style="padding-top:16px;">
+        Spontaneous speech datasets have non-constant length audio samples. This data is usually "chunked" to
+        obtain suitable length samples for TTS. However, when synthesizing long speech, such as monologues,
+        segmentation undermines long range dependencies in speech, such as prosody. Sequence-to-sequence with
+        attention (S2SA) models are the latest succeddful architectures in TTS. We are still learning if these
+        models can cope with more challenging data, and, specifically, there is no work investigating long
+        sequences in S2SA TTS. In this work we have two goals: (A) investigate the effect of sequence length when
+        training S2SA and (B) find a method that allows synthesizing long sequences with S2SA
     </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="world/traditional_LJ001-0001.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/traditional_LJ001-0002.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/traditional_LJ001-0003.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/traditional_LJ001-0004.resyn.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 1
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon1/traditional_LJ001-0001.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/traditional_LJ001-0002.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/traditional_LJ001-0003.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/traditional_LJ001-0004.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 2
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon2/traditional_LJ001-0001.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/traditional_LJ001-0002.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/traditional_LJ001-0003.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/traditional_LJ001-0004.wav">
-      </audio>
-    </div>
-  </div>
-
 </div>
-<!-- End Row -->
 
-
-
-
-
-
-<!-- Row AMHARIC AND SWAHILI -->
-<h3 style="text-align:center; padding-top: 20px;">
-  Out of domain languages: Amharic and Swahili
-</h3>
-<div class="flex-row">
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Original
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="originals/ood_lang_amharic_tr_10841_tr09115.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/ood_lang_amharic_tr_10844_tr09118.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/ood_lang_SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part7.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/ood_lang_SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part8.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      WORLD
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="world/ood_lang_amharic_tr_10841_tr09115.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/ood_lang_amharic_tr_10844_tr09118.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/ood_lang_SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part7.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/ood_lang_SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part8.resyn.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 1
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon1/ood_lang_amharic_tr_10841_tr09115.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/ood_lang_amharic_tr_10844_tr09118.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/ood_lang_SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part7.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/ood_lang_SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part8.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 2
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon2/ood_lang_amharic_tr_10841_tr09115.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/ood_lang_amharic_tr_10844_tr09118.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/ood_lang_SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part7.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/ood_lang_SWH-05-20101106_16k-emission_swahili_05h30_-_06h00_tu_20101106_part8.wav">
-      </audio>
-    </div>
-  </div>
-
-</div>
-<!-- End Row -->
-
-
-
-
-
-<!-- Row WOLOF AND XHOSA -->
-<h3 style="text-align:center; padding-top: 20px;">
-  Out of domain languages: Wolof and Swahili
-</h3>
-<div class="flex-row">
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Original
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="originals/ood_lang_WOL_01_lect_0003.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/ood_lang_WOL_01_lect_0004.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/ood_lang_xhosa_0050_0008865237.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/ood_lang_xhosa_0050_0015203558.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      WORLD
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="world/ood_lang_WOL_01_lect_0003.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/ood_lang_WOL_01_lect_0004.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/ood_lang_xhosa_0050_0008865237.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/ood_lang_xhosa_0050_0015203558.resyn.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 1
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon1/ood_lang_WOL_01_lect_0003.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/ood_lang_WOL_01_lect_0004.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/ood_lang_xhosa_0050_0008865237.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/ood_lang_xhosa_0050_0015203558.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 2
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon2/ood_lang_WOL_01_lect_0003.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/ood_lang_WOL_01_lect_0004.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/ood_lang_xhosa_0050_0008865237.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/ood_lang_xhosa_0050_0015203558.wav">
-      </audio>
-    </div>
-  </div>
-
-</div>
-<!-- End Row -->
-
-
-
-
-
-
-
-
-<!-- Row CHILDREN -->
-<h3 style="text-align:center; padding-top: 20px;">
-  Out of domain speakers: children
-</h3>
-<div class="flex-row">
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Original
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="originals/children_kid_saying_his_name-DeclanLewis.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/children_therapy_001A.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/children_therapy_001A2.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/children_therapy_002A.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      WORLD
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="world/children_kid_saying_his_name-DeclanLewis.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/children_therapy_001A.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/children_therapy_001A2.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/children_therapy_002A.resyn.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 1
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon1/children_kid_saying_his_name-DeclanLewis.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/children_therapy_001A.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/children_therapy_001A2.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/children_therapy_002A.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 2
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon2/children_kid_saying_his_name-DeclanLewis.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/children_therapy_001A.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/children_therapy_001A2.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/children_therapy_002A.wav">
-      </audio>
-    </div>
-  </div>
-
-</div>
-<!-- End Row -->
-
-
-
-<!-- Row SPEECH RATES -->
-<h3 style="text-align:center; padding-top: 20px;">
-  Out of domain styles: speech rates
-</h3>
-<div class="flex-row">
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Original
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="originals/alba_clear_c_1_025.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/alba_clear_h_1_025.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/alba_fast_1_025.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/alba_plain_1_025.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      WORLD
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="world/alba_clear_c_1_025.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/alba_clear_h_1_025.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/alba_fast_1_025.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/alba_plain_1_025.resyn.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 1
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon1/alba_clear_c_1_025.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/alba_clear_h_1_025.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/alba_fast_1_025.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/alba_plain_1_025.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 2
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon2/alba_clear_c_1_025.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/alba_clear_h_1_025.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/alba_fast_1_025.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/alba_plain_1_025.wav">
-      </audio>
-    </div>
-  </div>
-
-</div>
-<!-- End Row -->
-
-
-
-
-<!-- Row EXPRESSIVE CHILEAN -->
-<h3 style="text-align:center; padding-top: 20px;">
-  Out of domain styles: expressive speech (Chilean Spanish)
-</h3>
-<div class="flex-row">
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Original
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="originals/expressive_chilean_o0021_1.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/expressive_chilean_o0080_1.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/expressive_chilean_o0107_1.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/expressive_chilean_o0175_1.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      WORLD
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="world/expressive_chilean_o0021_1.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/expressive_chilean_o0080_1.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/expressive_chilean_o0107_1.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/expressive_chilean_o0175_1.resyn.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 1
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon1/expressive_chilean_o0021_1.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/expressive_chilean_o0080_1.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/expressive_chilean_o0107_1.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/expressive_chilean_o0175_1.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 2
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon2/expressive_chilean_o0021_1.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/expressive_chilean_o0080_1.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/expressive_chilean_o0107_1.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/expressive_chilean_o0175_1.wav">
-      </audio>
-    </div>
-  </div>
-
-</div>
-<!-- End Row -->
-
-
-
-
-<!-- Row LOMBARD SPEECH -->
-<h3 style="text-align:center; padding-top: 20px;">
-  Out of domain recording condition: Lombard speech
-</h3>
-<div class="flex-row">
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Original
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="originals/lombard_hvd_001.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/lombard_mrt_001.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/lombard_quiet_hvd_001.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/lombard_quiet_mrt_001.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      WORLD
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="world/lombard_hvd_001.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/lombard_mrt_001.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/lombard_quiet_hvd_001.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/lombard_quiet_mrt_001.resyn.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 1
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon1/lombard_hvd_001.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/lombard_mrt_001.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/lombard_quiet_hvd_001.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/lombard_quiet_mrt_001.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 2
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon2/lombard_hvd_001.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/lombard_mrt_001.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/lombard_quiet_hvd_001.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/lombard_quiet_mrt_001.wav">
-      </audio>
-    </div>
-  </div>
-
-</div>
-<!-- End Row -->
-
-
-
-
-
-
-<!-- Row SPEECH LIKE -->
-<h3 style="text-align:center; padding-top: 20px;">
-  Out of domain speech-like: singing, whistle, yelling
-</h3>
-<div class="flex-row">
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Original
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="originals/speech_like_man_yelling_2.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/speech_like_singing-female1-C-hi.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/speech_like_whistle_2.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      WORLD
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="world/speech_like_man_yelling_2.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/speech_like_singing-female1-C-hi.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/speech_like_whistle_2.resyn.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 1
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon1/speech_like_man_yelling_2.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/speech_like_singing-female1-C-hi.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/speech_like_whistle_2.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 2
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon2/speech_like_man_yelling_2.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/speech_like_singing-female1-C-hi.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/speech_like_whistle_2.wav">
-      </audio>
-    </div>
-  </div>
-
-</div>
-<!-- End Row -->
-
-
-
-
-
-
-<!-- Row NON SPEECH -->
-<h3 style="text-align:center; padding-top: 20px;">
-  Out of domain non-speech: alarm, bird, motor
-</h3>
-<div class="flex-row">
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Original
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="originals/non_speech_alarm1.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/non_speech_bird1.wav">
-      </audio>
-      <audio controls="">
-        <source src="originals/non_speech_motor_2a.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      WORLD
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="world/non_speech_alarm1.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/non_speech_bird1.resyn.wav">
-      </audio>
-      <audio controls="">
-        <source src="world/non_speech_motor_2a.resyn.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 1
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon1/non_speech_alarm1.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/non_speech_bird1.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon1/non_speech_motor_2a.wav">
-      </audio>
-    </div>
-  </div>
-
-  <div class="flex-column">
-    <div style="text-align: center; padding: 7px 13px; margin: 7px; border-radius: 10px; border: solid 1px gray;">
-      Amazon 2
-    </div>
-    <div class="audio">
-      <audio controls="">
-        <source src="amazon2/non_speech_alarm1.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/non_speech_bird1.wav">
-      </audio>
-      <audio controls="">
-        <source src="amazon2/non_speech_motor_2a.wav">
-      </audio>
-    </div>
-  </div>
-
-</div>
-<!-- End Row -->
-
-
-
-
-
-<!-- End Webpage -->
-  </body>
-</html>
+<!-- Part 2: Experiments in Paper -->
+<div>
+    <h2 style="padding-top:16px;"><a name="Experiments">Experiments</a></h2>
+
+    <h3 style="padding-top:16px;"><a name="Single-reference">Part A: EFFECT OF DIFFERENT SEQUENCE LENGTHS</a></h3>
+
+    <div style="padding-top:16px;">
+        We implemented different segmentations methods either based on audio or text to obtain datasets with different
+        sequence length distributions and trained S2SA TTS models. Next we show training alignments for the failed models
+        described in Table 1.
+    </div>
+
+    <table style="padding-top:16px;">
+        <tbody><tr>
+            <th></th>
+            <th>VAD-1 epoch 500</th>
+            <th>VAD-1 epoch 1000</th>
+            <th>VAD-3 epoch 500</th>
+            <th>VAD-3 epoch 1000</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>
+                <img src="./part_A/1_vad1_training_alignment_e500.png" width="300" height="200" alt=""></img>
+            </th>
+            <th>
+                <img src="./part_A/1_vad1_training_alignment_e1000.png" width="300" height="200" alt=""></img>
+            </th>
+            <th>
+                <img src="./part_A/2_vad3_training_alignment_e500.png" width="300" height="200" alt=""></img>
+            </th>
+            <th>
+                <img src="./part_A/2_vad3_training_alignment_e1000.png" width="300" height="200" alt=""></img>
+            </th>
+        </tr>
+    </tbody></table>
+
+
+    </tbody></table>
+    <table style="padding-top:16px;">
+        <tbody><tr>
+            <th></th>
+            <th>Binary classifier epoch 500</th>
+            <th>Binary classifier epoch 1000</th>
+            <th>Baseline epoch 500</th>
+            <th>Baseline classifier epoch 1000</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>
+                <img src="./part_A/4_classifier_training_alignment_e500.png" width="300" height="200" alt=""></img>
+            </th>
+            <th>
+                <img src="./part_A/4_classifier_training_alignment_e1000.png" width="300" height="200" alt=""></img>
+            </th>
+            <th>
+                <img src="./part_A/5_baseline_training_alignment_e500.png" width="300" height="200" alt=""></img>
+            </th>
+            <th>
+                <img src="./part_A/5_baseline_training_alignment_e1000.png" width="300" height="200" alt=""></img>
+            </th>
+        </tr>
+    </tbody></table>
+
+    <div style="padding-top:16px;">
+        Analysis..
+    </div>
+
+
+    <div style="padding-top:16px;">
+        These are samples for the failed models in Table 2.
+    </div>
+
+    <table style="padding-top:16px;">
+        <tbody><tr>
+            <th>VAD-1</th>
+            <th>
+                <audio src="part_A/1_vad1_failed_synthesis.wav" controls=""></audio>
+            </th>
+            <th>VAD-3</th>
+            <th>
+                <audio src="part_A/2_vad3_failed_synthesis.wav" controls=""></audio>
+            </th>
+            <th>Binary classifier</th>
+            <th>
+                <audio src="part_A/4_classifier_failed_synthesis.wav" controls=""></audio>
+            </th>
+            <th>Baseline</th>
+            <th>
+                <audio src="part_A/5_baseline_failed_synthesis.wav" controls=""></audio>
+            </th>
+        </tr>
+        </tr>
+    </tbody></table>
+
+    <div>
+        <h2 style="padding-top:16px;"><a name="Experiments">Experiments</a></h2>
+
+        <h3 style="padding-top:16px;"><a name="Single-reference">Part B: SYNTHESIZING LONG SEQUENCES</a></h3>
+
+        <div style="padding-top:16px;">
+            These are training alignments for the "scheduled" model described in Table 3. Alignment of first
+            phase is not shown as it's almost unnoticeable.
+        </div>
+
+        <table style="padding-top:16px;">
+            <tbody><tr>
+                <th></th>
+                <th>Phase 1</th>
+                <th>Phase 2</th>
+                <th>Phase 3</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>
+                    <img src="./part_B/combined_model_alignments/combined_train_align_end_phase2.png" width="400" height="300" alt=""></img>
+                </th>
+                <th>
+                    <img src="./part_B/combined_model_alignments/combined_train_align_end_phase3.png" width="400" height="300" alt=""></img>
+                </th>
+                <th>
+                    <img src="./part_B/combined_model_alignments/combined_train_align_end_phase4.png" width="400" height="300" alt=""></img>
+                </th>
+            </tr>
+        </tbody></table>
+
+
+
+
+        <div style="padding-top:16px;">
+            We synthesized a very long paragraph with each system, this is the text:
+        </div>
+
+
+        <div style="padding-top:16px;">
+            "think that western liberal democracies are more specifically obligated to developing countries and their citizens because they often are partially responsible for their circumstances. Like Like america literally created isis when they shipped off weapons to like rebel groups in iran, and the britons the brits literally destroyed african independence by redrawing the borders and just kind of colonizing all over the place. Same Same with india. When When states cause the problems of others, we think they have an obligation to assist with the consequences given that they caused them. We We think that taking in those affected by their actions is an effective way to do so, and like possibly one of the best ways in so far as you are saving lives without like with minimum expenditure on yourself. Like Like we think a really important thing in this round is that states aren't actually harmed by taking in more immigrants. Like Like sure, there are arguments about why it might be difficult for your welfare system but all of these things even out over time. Like Like we had many studies that have shown that immigrants, when integrated, actually become very productive members of society, and give birth to children that become very productive members of society. Our Our second of clash has to do with the arbitrary nature of citizenship. Because Because even if you think that obligations occur first to your citizens, we don't think that applies if the way by which people can be citizens is arbitrary and there is no like fixed standard by which we measure. So So both"
+        </div>
+
+        <table style="padding-top:16px;">
+            <tbody><tr>
+                <th>Grammar model</th>
+                <th>
+                    <audio src="part_B/paragraph_synthesis/paragraph_grammar_synth_AM_spk.wav" controls=""></audio>
+                </th>
+                <th>Scheduled model</th>
+                <th>
+                    <audio src="part_B/paragraph_synthesis/paragraph_combined_synth_AM_spk.wav" controls=""></audio>
+                </th>
+            </tr>
+        </tbody></table>
+
+        <div style="padding-top:16px;">
+            Now we do a small analysis as the audio are very long and it's a bit hard to get all the small differences.
+        </div>
+
+
+        <div style="padding-top:16px;">
+            1. The scheduled model "respects" punctuation unlike the grammar based model, in the sentence:
+            "colonizing all over the place. Same Same with india. When When states cause the problems of others"
+        </div>
+
+        <table style="padding-top:16px;">
+            <tbody><tr>
+                <th>Grammar based</th>
+                <th>
+                    <audio src="part_B/paragraph_synthesis/Analysis/2_nltk_india_sentence.wav" controls=""></audio>
+                </th>
+                <th>Scheduled based</th>
+                <th>
+                    <audio src="part_B/paragraph_synthesis/Analysis/2_combined_india_sentence.wav" controls=""></audio>
+                </th>
+            </tr>
+        </tbody></table>
+
+        <div style="padding-top:16px;">
+            2. Both models add perceivable boundaries at places where there is not punctuation in the text, in similar
+            places
+        </div>
+
+        <div style="padding-top:16px;">
+            "best ways so far as you are saving lives without like with minimum expenditure on yourself. Like"
+        </div>
+
+        <table style="padding-top:16px;">
+            <tbody><tr>
+                <th>Grammar based</th>
+                <th>
+                    <audio src="part_B/paragraph_synthesis/Analysis/4_nltk_so_far_as_you_are_saving_lives_without_like_with_minimum_expenditure_on_yourself.wav" controls=""></audio>
+                </th>
+                <th>Scheduled based</th>
+                <th>
+                    <audio src="part_B/paragraph_synthesis/Analysis/7_combined_you_are_saving_lives_without_like_with_minimum_expenditure_on_yourself.wav" controls=""></audio>
+                </th>
+            </tr>
+        </tbody></table>
+
+        <div style="padding-top:16px;">
+            3. Both models keep emphasis, and at similar locations
+        </div>
+
+        <div style="padding-top:16px;">
+            "Because Because even if you think that obligations occur first to your citizens"
+        </div>
+
+        <table style="padding-top:16px;">
+            <tbody><tr>
+                <th>Grammar based</th>
+                <th>
+                    <audio src="part_B/paragraph_synthesis/Analysis/5_nltk_Because_Because_even_if_you_think_that_obligations_occur_first_to_your_citizens.wav" controls=""></audio>
+                </th>
+                <th>Scheduled based</th>
+                <th>
+                    <audio src="part_B/paragraph_synthesis/Analysis/5_combined_Because_Because_even_if_you_think_that_obligations_occur_first_to_your_citizens.wav" controls=""></audio>
+                </th>
+            </tr>
+        </tbody></table>
+
+
+</body></html>
