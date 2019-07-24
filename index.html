@@ -70,21 +70,23 @@
         In all our experiments we use an implementation of DCTTS [1] that you can find here:
         https://github.com/oliverwatts/ophelia. DCTTS stands for "Deep Convolutional TTS", and
         the architecture consists of a text encoder, audio encoder and an audio decoder, plus
-        an attention model (similar to Tacotron 2 but replacing all RNNs with CNNs). All together
+        an attention model (similar to Tacotron 2 but replacing all RNNs with dilated CNNs). All together
         they form the "T2M" module (or text-to-mel). The mel representation is coarsed in time,
         e.g. we use only ever fourth mel. Then, the "SSRN" ("Super Resolution Network") which
         upsamples both in time (we recover the 3 missing mels) and frequency (we output full
         linear spectrogram frames). The waveform is reconstructed using Griffin-Lim. The
-        attention modules generates an alignment between text encoder frames and audio decoder
-        frames both at training and synthesis time. <br/><br/>
+        attention matrix of size N x T (where N is the number of characters/phones at the input text)
+        and T the lenght of audio in frames), learns and alignment between the two sequences,
+        evaluating how much the n-th character is relevant to predict the t-th frame, both at
+        training and synthesis time. <br/><br/>
 
         <p style="text-align:center;"><img src="dctts.png" alt="DCTTS diagram" width="300" height="220"></p><br/><br/>
 
         DCTTS attention implementation has two important characteristics: the attention is guided
         to be nearly diagonal by imposing a penalty into the loss if the alignment deviates towards
-        the bottom left corner or the upper right corner and we use an attention window of length 3
-        ; at synthesis is monotonic, which means that attention can only attend to the current frame
-        or future ones but never passed frames. <br/><br/>
+        the bottom left corner or the upper right corner; and at synthesis time is monotonic,
+        which means that attention can only attend to the current frame
+        or future ones (a window of size 3) and uses the maximum attention of the previous timestep. <br/><br/>
 
 
     </div>
