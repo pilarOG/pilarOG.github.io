@@ -12,367 +12,299 @@
 <div>
     <div>
         <h1>
-            Samples for "SEQUENCE LENGTH TRAINING SEQUENCE-TO-SEQUENCE WITH ATTENTION TTS ON SPONTANEOUS SPEECH"
-            poster presented at the Speech Processing Crete Courses, 2019.
+            TITLE. Interspeech 2020 submission.
         </h1>
     </div>
     <div style="padding-top:16px;">
-        <b>Authors:</b>&nbsp;&nbsp;Pilar Oplustil and Simon King, CSTR, University of Edinburgh, Scotland
+        <b>Authors:</b>&nbsp;&nbsp;Pilar Oplustil Gallegos, Jennifer Williams, Joanna Rownicka, Simon King.
+        CSTR, University of Edinburgh, Scotland
+
     </div>
 
     <div style="padding-top:16px;"><h2>Abstract</h2></div>
     <div style="padding-top:16px;">
-        Spontaneous speech datasets have non-constant length audio samples. This data is usually "chunked" (e.g.
-        a large audio file is segmented into smaller audio files) to obtain suitable length samples for TTS. This
-        has been traditionally done at pauses or punctuation symbols. However, spontaneous speech has a non normal
-        distribution of silences and no ground truth punctuation.
-        Moreover, when synthesizing long speech, such as monologues, chunking undermines long range dependencies
-        in speech, such as prosody. Sequence-to-sequence with attention (S2SA) models are the latest successful
-        architectures in TTS. These models have shown they are able to synthesize natural and expressive speech.
-        We are still learning if these models can cope with more challenging data, and, specifically, there is no
-        work investigating long sequences (in training and generation) in S2SA TTS. In this work we had two goals:
-        (A) investigate the effect of sequence length when training S2SA and (B) find a method that allows
-        synthesizing long sequences with S2SA.
-    </div>
-</div>
-
-<div>
-    <h2 style="padding-top:16px;"><a name="Dataset">Dataset</a></h2>
-
-    <div style="padding-top:16px;">
-        In all the experiments presented here we used as training data the IBM debater dataset:
-        http://www.research.ibm.com/haifa/dept/vst/debating_data.shtml#Debate%20Speech%20Analysis
-        In this link you can donwload the full dataset which includes manual transcriptions.
-        These are two audio files from two speakers used at synthesis time from the original dataset.
-        In average, the audio files of this dataset are <b>~4 minutes</b> long, and in total <b>18 hrs</b>.
-    </div>
-
-    <table style="padding-top:16px;">
-        <tbody><tr>
-            <th>AM speaker</th>
-            <th>
-                <audio src="original_samples/AM_381_monarchy_pro.wav" controls=""></audio>
-            </th>
-            <th>DJ speaker</th>
-            <th>
-                <audio src="original_samples/DJ_1_ban-video-games_pro.wav" controls=""></audio>
-            </th>
-          </tr>
-          </tr>
-      </tbody></table>
-</div>
-
-
-<div>
-    <h2 style="padding-top:16px;"><a name="Model">Model</a></h2>
-
-    <div style="padding-top:16px;">
-        In all our experiments we use an implementation of DCTTS [1] that you can find here:
-        https://github.com/oliverwatts/ophelia. DCTTS stands for "Deep Convolutional TTS", and
-        the architecture consists of a text encoder, audio encoder and an audio decoder, plus
-        an attention model (similar to Tacotron 2 but replacing all RNNs with dilated CNNs). All together
-        they form the "T2M" module (or text-to-mel). The mel representation is coarsed in time,
-        e.g. we use only ever fourth mel. Then, the "SSRN" ("Super Resolution Network") which
-        upsamples both in time (we recover the 3 missing mels) and frequency (we output full
-        linear spectrogram frames). The waveform is reconstructed using Griffin-Lim. The
-        attention matrix of size N x T (where N is the number of characters/phones at the input text)
-        and T the lenght of audio in frames), learns and alignment between the two sequences,
-        evaluating how much the n-th character is relevant to predict the t-th frame, both at
-        training and synthesis time. <br/><br/>
-
-        <p style="text-align:center;"><img src="dctts.png" alt="DCTTS diagram" width="300" height="220"></p><br/><br/>
-
-        DCTTS attention implementation has two important characteristics: the attention is guided
-        to be nearly diagonal by imposing a penalty into the loss if the alignment deviates towards
-        the bottom left corner or the upper right corner; and at synthesis time is monotonic,
-        which means that attention can only attend to the current frame
-        or future ones (a window of size 3) and uses the maximum attention of the previous timestep. <br/><br/>
-
 
     </div>
 </div>
 
 
+
 <div>
-    <h2 style="padding-top:16px;"><a name="Experiments">Experiments</a></h2>
+    <h2 style="padding-top:16px;"><a name="Experiments">Listening test samples</a></h2>
 
-    <h3 style="padding-top:16px;"><a name="Single-reference">Part A: EFFECT OF DIFFERENT SEQUENCE LENGTHS</a></h3>
 
-    <div style="padding-top:16px;">
-        We implemented different segmentations methods either based on audio or text to obtain datasets with different
-        sequence length distributions and trained S2SA TTS models. Next we show training alignments for the failed models
-        described in Table 1. All sentences are different.<br/>
-
-        (1) and (2) VAD 1 and 3: we used a Voice Activity Detector (VAD) available on https://github.com/wiseman/py-webrtcvad,
-        with level 1 and 3 of aggressiveness.<br/>
-        (3) NLTK grammar: we segmented the text using NLTK to find roughly sentences comprised of a noun phrase and a verb
-        up to the start of the next noun phrase. The noun phrase was defined by fine-tuning on a portion of the IBM data.<br/>
-        (4) Binary classifier: we trained a one layer feed forward classifier on Pytorch trained on 0.25 s mel segments (5 ms frames) of final and non-final audio on external data.<br/>
-        (5) Baseline: we arbitrarily cut the text randomly into sentences from 5 to 15 words, within paragraphs segmented by period.<br/><br/>
-
-        The experiments that found first audio timing were aligned with the text to match the end of the word close to the timings detected.
-    </div>
 
     <table style="padding-top:16px;" align="center">
         <tbody><tr>
             <th></th>
-            <th>VAD-1 epoch 500</th>
-            <th>VAD-1 epoch 1000</th>
-        </tr>
-        <tr>
-            <th></th>
-            <th>
-                <img src="./part_A/1_vad1_training_alignment_e500.png" width="400" height="300" alt=""></img>
-            </th>
-            <th>
-                <img src="./part_A/1_vad1_training_alignment_e1000.png" width="400" height="300" alt=""></img>
-            </th>
-        </tr>
-    </tbody></table>
-
-    <table style="padding-top:16px;" align="center">
-        <tbody><tr>
-            <th></th>
-            <th>VAD-3 epoch 500</th>
-            <th>VAD-3 epoch 1000</th>
-        </tr>
-        <tr>
-            <th></th>
-            <th>
-                <img src="./part_A/2_vad3_training_alignment_e500.png" width="400" height="300" alt=""></img>
-            </th>
-            <th>
-                <img src="./part_A/2_vad3_training_alignment_e1000.png" width="400" height="300" alt=""></img>
-            </th>
-        </tr>
-    </tbody></table>
-
-
-
-    </tbody></table>
-    <table style="padding-top:16px;" align="center">
-        <tbody><tr>
-            <th></th>
-            <th>Binary classifier epoch 500</th>
-            <th>Binary classifier epoch 1000</th>
-        </tr>
-        <tr>
-            <th></th>
-            <th>
-                <img src="./part_A/4_classifier_training_alignment_e500.png" width="400" height="300" alt=""></img>
-            </th>
-            <th>
-                <img src="./part_A/4_classifier_training_alignment_e1000.png" width="400" height="300" alt=""></img>
-            </th>
-        </tr>
-    </tbody></table>
-
-
-    </tbody></table>
-    <table style="padding-top:16px;" align="center">
-        <tbody><tr>
-            <th></th>
-            <th>Baseline epoch 500</th>
-            <th>Baseline classifier epoch 1000</th>
-        </tr>
-        <tr>
-            <th></th>
-            <th>
-                <img src="./part_A/5_baseline_training_alignment_e500.png" width="400" height="300" alt=""></img>
-            </th>
-            <th>
-                <img src="./part_A/5_baseline_training_alignment_e1000.png" width="400" height="300" alt=""></img>
-            </th>
-        </tr>
-    </tbody></table>
-
-
-    <div style="padding-top:16px;">
-        Analysis: we can see for VAD-1 and VAD-3 that attention changed from epoch
-        500 to 1000 (on the top left corner), showing that an alignment was starting to take form. This might mean that
-        if trained for longer, these models might eventually learn a proper alignment. On the other hand, the binary
-        classifier seemed to have learnt a good alignment at the start but it fades out up to the end, while the
-        baseline shows an alignment for a very short sentence which seems quite strong. It seems then that the
-        learning of the attention is not indifferent to the chunking method used and to how clean the chunking was
-        (for example, in a mistmatch between audio and text, words that might have been cutted at the beginning or end)
-
-    </div>
-
-
-    <div style="padding-top:16px;">
-        These are samples for the failed models in Table 2. We can see that for the classifier and baseline models
-        some words can be recognized and at some portions a bit of structure, while the VAD models are clearly
-        generating random speech-like sounds. All these samples were synthesized using the code for speaker "DJ",
-        which only the baseline models seems to have learnt speaker characteristics. All sentences are different.
-
-    </div>
-
-    <table style="padding-top:16px;" align="center">
-        <tbody><tr>
-            <th></th>
-            <th>VAD-1</th>
-            <th>VAD-3</th>
-        </tr>
-        <tr>
-            <th></th>
-            <th>
-                <audio src="part_A/1_vad1_failed_synthesis.wav" controls=""></audio>
-            </th>
-            <th>
-                <audio src="part_A/2_vad3_failed_synthesis.wav" controls=""></audio>
-            </th>
-        </tr>
-    </tbody></table>
-
-    <table style="padding-top:16px;" align="center">
-        <tbody><tr>
-            <th></th>
-            <th>Classifier</th>
+            <th>Speaker</th>
+            <th>Copy Synth</th>
             <th>Baseline</th>
+            <th>Deep Spectrum based</th>
+            <th>Speaker ID based</th>
+            <th>Device quality based</th>
         </tr>
         <tr>
             <th></th>
+            <th>16</th>
             <th>
-                <audio src="part_A/4_classifier_failed_synthesis.wav" controls=""></audio>
+                <audio src="samples/16_copy_synth.wav" controls=""></audio>
             </th>
             <th>
-                <audio src="part_A/2_vad3_failed_synthesis.wav" controls=""></audio>
+                <audio src="samples/16_base_long.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/16_dp1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/16_id1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/16_x50.wav" controls=""></audio>
             </th>
         </tr>
+
+        <tr>
+            <th></th>
+            <th>100</th>
+            <th>
+                <audio src="samples/100_copy_synth.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/100_base_long.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/100_dp1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/100_id1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/100_x50.wav" controls=""></audio>
+            </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th>2416</th>
+            <th>
+                <audio src="samples/2416_copy_synth.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/2416_base_long.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/2416_dp1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/2416_id1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/2416_x50.wav" controls=""></audio>
+            </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th>4297</th>
+            <th>
+                <audio src="samples/4297_copy_synth.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/4297_base_long.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/4297_dp1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/4297_id1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/4297_x50.wav" controls=""></audio>
+            </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th>4356</th>
+            <th>
+                <audio src="samples/4356_copy_synth.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/4356_base_long.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/4356_dp1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/4356_id1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/4356_x50.wav" controls=""></audio>
+            </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th>4899</th>
+            <th>
+                <audio src="samples/4899_copy_synth.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/4899_base_long.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/4899_dp1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/4899_id1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/4899_x50.wav" controls=""></audio>
+            </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th>5054</th>
+            <th>
+                <audio src="samples/5054_copy_synth.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/5054_base_long.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/5054_dp1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/5054_id1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/5054_x50.wav" controls=""></audio>
+            </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th>5655</th>
+            <th>
+                <audio src="samples/5655_copy_synth.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/5655_base_long.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/5655_dp1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/5655_id1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/5655_x50.wav" controls=""></audio>
+            </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th>5712</th>
+            <th>
+                <audio src="samples/5712_copy_synth.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/5712_base_long.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/5712_dp1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/5712_id1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/5712_x50.wav" controls=""></audio>
+            </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th>6189</th>
+            <th>
+                <audio src="samples/6189_copy_synth.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/6189_base_long.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/6189_dp1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/6189_id1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/6189_x50.wav" controls=""></audio>
+            </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th>6927</th>
+            <th>
+                <audio src="samples/6927_copy_synth.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/6927_base_long.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/6927_dp1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/6927_id1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/6927_x50.wav" controls=""></audio>
+            </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th>7515</th>
+            <th>
+                <audio src="samples/7515_copy_synth.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/7515_base_long.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/7515_dp1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/7515_id1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/7515_x50.wav" controls=""></audio>
+            </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th>8468</th>
+            <th>
+                <audio src="samples/8468_copy_synth.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/8468_base_long.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/8468_dp1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/8468_id1.wav" controls=""></audio>
+            </th>
+            <th>
+                <audio src="samples/8468_x50.wav" controls=""></audio>
+            </th>
+        </tr>
+
     </tbody></table>
 
-
-
-    <div>
-
-        <h3 style="padding-top:16px;"><a name="Part B">Part B: SYNTHESIZING LONG SEQUENCES</a></h3>
-
-        <div style="padding-top:16px;">
-            These are training alignments for the combined model described in Table 3. The alignment of first
-            phase is not shown as it's almost unnoticeable. All sentences are different.
-        </div>
-
-        <table style="padding-top:16px;">
-            <tbody><tr>
-                <th></th>
-                <th>Phase 1</th>
-                <th>Phase 2</th>
-                <th>Phase 3</th>
-            </tr>
-            <tr>
-                <th></th>
-                <th>
-                    <img src="./part_B/combined_model_alignments/combined_train_align_end_phase2.png" width="400" height="300" alt=""></img>
-                </th>
-                <th>
-                    <img src="./part_B/combined_model_alignments/combined_train_align_end_phase3.png" width="400" height="300" alt=""></img>
-                </th>
-                <th>
-                    <img src="./part_B/combined_model_alignments/combined_train_align_end_phase4.png" width="400" height="300" alt=""></img>
-                </th>
-            </tr>
-        </tbody></table>
-
-
-
-
-        <div style="padding-top:16px;">
-            We synthesized a very long paragraph with the combined system and the NLTK system.</br>
-            Paragraph text:</br></br>
-        </div>
-
-
-        <div style="padding-top:16px;">
-            <i>"think that western liberal democracies are more specifically obligated to developing countries and their citizens because they often are partially responsible for their circumstances. Like Like america literally created isis when they shipped off weapons to like rebel groups in iran, and the britons the brits literally destroyed african independence by redrawing the borders and just kind of colonizing all over the place. Same Same with india. When When states cause the problems of others, we think they have an obligation to assist with the consequences given that they caused them. We We think that taking in those affected by their actions is an effective way to do so, and like possibly one of the best ways in so far as you are saving lives without like with minimum expenditure on yourself. Like Like we think a really important thing in this round is that states aren't actually harmed by taking in more immigrants. Like Like sure, there are arguments about why it might be difficult for your welfare system but all of these things even out over time. Like Like we had many studies that have shown that immigrants, when integrated, actually become very productive members of society, and give birth to children that become very productive members of society. Our Our second of clash has to do with the arbitrary nature of citizenship. Because Because even if you think that obligations occur first to your citizens, we don't think that applies if the way by which people can be citizens is arbitrary and there is no like fixed standard by which we measure."</i>
-        </div>
-
-        <table style="padding-top:16px;" align="center">
-            <tbody><tr>
-                <th>Grammar model</th>
-                <th>
-                    <audio src="part_B/paragraph_synthesis/paragraph_grammar_synth_AM_spk.wav" controls=""></audio>
-                </th>
-                <th>Combined model</th>
-                <th>
-                    <audio src="part_B/paragraph_synthesis/paragraph_combined_synth_AM_spk.wav" controls=""></audio>
-                </th>
-            </tr>
-        </tbody></table></br></br>
-
-        <div style="padding-top:16px;">
-            Next we highlight some interesting behaviour observed when comparing the two paragraphs.
-        </div>
-
-
-        <div style="padding-top:16px;">
-            1. The combined model "respects" punctuation unlike the grammar based model, in the sentence:
-            "colonizing all over the place. Same Same with india. When When states cause the problems of others"
-        </div>
-
-        <table style="padding-top:16px;" align="center">
-            <tbody><tr>
-                <th>Grammar model</th>
-                <th>
-                    <audio src="part_B/paragraph_synthesis/Analysis/2_nltk_india_sentence.wav" controls=""></audio>
-                </th>
-                <th>Combined model</th>
-                <th>
-                    <audio src="part_B/paragraph_synthesis/Analysis/2_combined_india_sentence.wav" controls=""></audio>
-                </th>
-            </tr>
-        </tbody></table>
-
-        <div style="padding-top:16px;">
-            2. Both models add perceivable boundaries at places where there is not punctuation in the text, in similar
-            places
-        </div>
-
-        <div style="padding-top:16px;">
-            "best ways so far as you are saving lives without like with minimum expenditure on yourself. Like"
-        </div>
-
-        <table style="padding-top:16px;" align="center">
-            <tbody><tr>
-                <th>Grammar model</th>
-                <th>
-                    <audio src="part_B/paragraph_synthesis/Analysis/4_nltk_so_far_as_you_are_saving_lives_without_like_with_minimum_expenditure_on_yourself.wav" controls=""></audio>
-                </th>
-                <th>Combined model</th>
-                <th>
-                    <audio src="part_B/paragraph_synthesis/Analysis/7_combined_you_are_saving_lives_without_like_with_minimum_expenditure_on_yourself.wav" controls=""></audio>
-                </th>
-            </tr>
-        </tbody></table>
-
-        <div style="padding-top:16px;">
-            3. Both models keep emphasis, and at similar locations
-        </div>
-
-        <div style="padding-top:16px;">
-            "Because Because even if you think that obligations occur first to your citizens"
-        </div>
-
-        <table style="padding-top:16px;" align="center">
-            <tbody><tr>
-                <th>Grammar model</th>
-                <th>
-                    <audio src="part_B/paragraph_synthesis/Analysis/5_nltk_Because_Because_even_if_you_think_that_obligations_occur_first_to_your_citizens.wav" controls=""></audio>
-                </th>
-                <th>Combined model</th>
-                <th>
-                    <audio src="part_B/paragraph_synthesis/Analysis/5_combined_Because_Because_even_if_you_think_that_obligations_occur_first_to_your_citizens.wav" controls=""></audio>
-                </th>
-            </tr>
-        </tbody></table>
-
-        <div>
-        <h2 style="padding-top:16px;"><a name="References">References</a></h2>
-        [1] Tachibana, H., Uenoyama, K., \& Aihara, S. (2018, April). Efficiently trainable text-to-speech system based on deep convolutional networks with guided attention. In ICASSP proceedings, 2018
-        </div>
-
-        <div>
-        <h2 style="padding-top:16px;"><a name="Poster">Poster</a></h2>
-        <p style="text-align:center;"><img src="Short_SPCC_poster.jpg" alt="Poster" width="700" height="600"></p><br/><br/>
-        </div>
 
 </body></html>
