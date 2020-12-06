@@ -11,9 +11,9 @@
 
 <div>
     <div>
-        <h1>
+        <h2>
             An Unsupervised Method to Select a Speaker Subset from Large Multi-Speaker Speech Synthesis Datasets. (Presented at Interspeech 2020)
-        </h1>
+        </h2>
     </div>
     <div style="padding-top:16px;">
         <b>Authors:</b>&nbsp;&nbsp;Pilar Oplustil Gallegos, Jennifer Williams, Joanna Rownicka, Simon King.
@@ -21,14 +21,14 @@
 
     </div>
 
-    <div style="padding-top:16px;"><h2>Abstract</h2></div>
+    <div style="padding-top:16px;"><h3>Abstract</h3></div>
     <div style="padding-top:16px;"> Large multi-speaker datasets for TTS typically contain diverse speakers, recording conditions, styles and quality of data. Although one might generally presume that more data is better, in this paper we show that a model trained on a carefully-chosen subset of speakers from LibriTTS provides significantly better quality synthetic speech than a model trained on a larger set. We propose an unsupervised methodology to find this subset by clustering per-speaker acoustic representations.</div>
 </div>
 
 
 
 <div>
-    <h2 style="padding-top:16px;"><a name="Experiments">Listening test samples</a></h2>
+    <h3 style="padding-top:16px;"><a name="Experiments">Listening test samples</a></h3>
     <div style="padding-top:16px;"> These samples were created with models trained with Ophelia-DCTTS https://github.com/CSTR-Edinburgh/ophelia</div>
 
 
@@ -306,9 +306,9 @@
 
     <div>
         <div>
-            <h2>
+            <h3>
                 List of speakers
-            </h2>
+            </h3>
         </div>
         <div style="padding-top:16px;">
             <b>Baseline</b>
@@ -319,9 +319,798 @@
         </div>
         <div style="padding-top:16px;"> ['2960', '2481', '7800', '8468', '4406', '3032', '2416', '5914', '1923', '6147', '7515', '1841', '339', '4899', '4356', '3361', '8066', '100', '7481', '8474', '5655', '16', '5712', '4297', '4362', '5290', '5054', '6104', '1116', '6189', '1271', '6927', '8088']</div>
 
-
-
-
     </div>
+
+
+
+
+
+
+            <h3>
+                Tacotron samples
+            </h3>
+
+        <table style="16px;" align="center">
+            <tbody>
+
+            <tr>
+
+                <th>Baseline</th>
+                <th>Deep spectrum based cluster-dependent TTS</th>
+            </tr>
+            <tr>
+
+                <th>
+                    <audio src="tacotron_samples/tacotron_base_16.wav" controls=""></audio>
+                </th>
+                <th>
+                    <audio src="tacotron_samples/tacotron_ds_16.wav" controls=""></audio>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                    <audio src="tacotron_samples/tacotron_base_100.wav" controls=""></audio>
+                </th>
+                <th>
+                    <audio src="tacotron_samples/tacotron_ds_100.wav" controls=""></audio>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                    <audio src="tacotron_samples/tacotron_base_2416.wav" controls=""></audio>
+                </th>
+                <th>
+                    <audio src="tacotron_samples/tacotron_ds_2416.wav" controls=""></audio>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                    <audio src="tacotron_samples/tacotron_base_4297.wav" controls=""></audio>
+                </th>
+                <th>
+                    <audio src="tacotron_samples/tacotron_ds_4297.wav" controls=""></audio>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                    <audio src="tacotron_samples/tacotron_base_4356.wav" controls=""></audio>
+                </th>
+                <th>
+                    <audio src="tacotron_samples/tacotron_ds_4356.wav" controls=""></audio>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                    <audio src="tacotron_samples/tacotron_base_4899.wav" controls=""></audio>
+                </th>
+                <th>
+                    <audio src="tacotron_samples/tacotron_ds_4899.wav" controls=""></audio>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                    <audio src="tacotron_samples/tacotron_base_5054.wav" controls=""></audio>
+                </th>
+                <th>
+                    <audio src="tacotron_samples/tacotron_ds_5054.wav" controls=""></audio>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                    <audio src="tacotron_samples/tacotron_base_5655.wav" controls=""></audio>
+                </th>
+                <th>
+                    <audio src="tacotron_samples/tacotron_ds_5655.wav" controls=""></audio>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                    <audio src="tacotron_samples/tacotron_base_5712.wav" controls=""></audio>
+                </th>
+                <th>
+                    <audio src="tacotron_samples/tacotron_ds_5712.wav" controls=""></audio>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                    <audio src="tacotron_samples/tacotron_base_6189.wav" controls=""></audio>
+                </th>
+                <th>
+                    <audio src="tacotron_samples/tacotron_ds_6189.wav" controls=""></audio>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                    <audio src="tacotron_samples/tacotron_base_6927.wav" controls=""></audio>
+                </th>
+                <th>
+                    <audio src="tacotron_samples/tacotron_ds_6927.wav" controls=""></audio>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                    <audio src="tacotron_samples/tacotron_base_7515.wav" controls=""></audio>
+                </th>
+                <th>
+                    <audio src="tacotron_samples/tacotron_ds_7515.wav" controls=""></audio>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                    <audio src="tacotron_samples/tacotron_base_8468.wav" controls=""></audio>
+                </th>
+                <th>
+                    <audio src="tacotron_samples/tacotron_ds_8468.wav" controls=""></audio>
+                </th>
+              </tr>
+
+  </tbody></table>
+
+
+
+
+            <h2>
+                Using Previous Acoustic Context to Improve Text-to-Speech Synthesis. (Pre-print)
+            </h2>
+
+
+        <div style="16px;">
+            <b>Authors:</b>&nbsp;&nbsp;Pilar Oplustil Gallegos, Simon King.
+            CSTR, University of Edinburgh, Scotland
+
+        </div>
+
+        <div style="16px;"><h3>Abstract</h3></div>
+        <div style="16px;"> Many speech synthesis datasets, especially those derived from audiobooks, naturally comprise sequences of utterances. Nevertheless, such data are commonly treated as individual, unordered utterances both when training a model and at in- ference time. This discards important prosodic phenomena above the utterance level. In this paper, we leverage the sequential nature of the data using an acoustic context en- coder that produces an embedding of the previous utterance audio. This is input to the decoder in a Tacotron 2 model. The embedding is also used for a secondary task, providing additional supervision. We compare two secondary tasks: predicting the ordering of utterance pairs, and predicting the embedding of the current utterance audio. Results show that the relation between consecutive utterances is informative: our proposed model significantly improves naturalness over a Tacotron 2 baseline.</div>
+
+
+
+        <h3>
+            Naturalness of utterances heard in isolation
+        </h3>
+
+    <table style="16px;" align="center">
+        <tbody>
+
+        <tr>
+            <th>Copy synth</th>
+            <th>Baseline</th>
+            <th>ACE only</th>
+            <th>ACE + Next Task</th>
+            <th>ACE + Order Task</th>
+        </tr>
+
+        <tr>
+          <th>
+              <audio src="slt_part_1/ref_LJ004_0151_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ004_0151_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ004_0151_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ004_0151_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ004_0151_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+          <th>
+              <audio src="slt_part_1/ref_LJ010_0256_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ010_0256_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ010_0256_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ010_0256_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ010_0256_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+          <th>
+              <audio src="slt_part_1/ref_LJ012_0223_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ012_0223_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ012_0223_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ012_0223_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ012_0223_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+
+          <th>
+              <audio src="slt_part_1/ref_LJ013_0031_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0031_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0031_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0031_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0031_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+
+          <th>
+              <audio src="slt_part_1/ref_LJ013_0032_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0032_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0032_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0032_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0032_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+
+          <th>
+              <audio src="slt_part_1/ref_LJ013_0059_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0059_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0059_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0059_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0059_waveglow_order.wav" controls=""></audio>
+          </th>
+
+        </tr>
+        <tr>
+          <th>
+              <audio src="slt_part_1/ref_LJ013_0203_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0203_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0203_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0203_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0203_waveglow_order.wav" controls=""></audio>
+          </th>
+
+        </tr>
+        <tr>
+          <th>
+              <audio src="slt_part_1/ref_LJ013_0203_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0203_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0203_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0203_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0203_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+
+          <th>
+              <audio src="slt_part_1/ref_LJ013_0212_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0212_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0212_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0212_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ013_0212_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+
+          <th>
+              <audio src="slt_part_1/ref_LJ015_0015_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ015_0015_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ015_0015_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ015_0015_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ015_0015_waveglow_order.wav" controls=""></audio>
+          </th>
+
+        </tr>
+        <tr>
+          <th>
+              <audio src="slt_part_1/ref_LJ015_0052_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ015_0052_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ015_0052_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ015_0052_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ015_0052_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+
+          <th>
+              <audio src="slt_part_1/ref_LJ016_0050_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ016_0050_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ016_0050_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ016_0050_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ016_0050_waveglow_order.wav" controls=""></audio>
+          </th>
+
+        </tr>
+        <tr>
+          <th>
+              <audio src="slt_part_1/ref_LJ016_0287_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ016_0287_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ016_0287_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ016_0287_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ016_0287_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+
+          <th>
+              <audio src="slt_part_1/ref_LJ017_0045_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ017_0045_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ017_0045_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ017_0045_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ017_0045_waveglow_order.wav" controls=""></audio>
+          </th>
+
+        </tr>
+        <tr>
+          <th>
+              <audio src="slt_part_1/ref_LJ018_0070_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0070_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0070_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0070_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0070_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+
+          <th>
+              <audio src="slt_part_1/ref_LJ018_0222_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0222_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0222_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0222_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0222_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+
+          <th>
+              <audio src="slt_part_1/ref_LJ018_0227_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0227_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0227_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0227_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0227_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+
+          <th>
+              <audio src="slt_part_1/ref_LJ018_0282_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0282_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0282_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0282_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0282_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+
+          <th>
+              <audio src="slt_part_1/ref_LJ018_0309_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0309_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0309_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0309_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ018_0309_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+          <th>
+              <audio src="slt_part_1/ref_LJ020_0063_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ020_0063_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ020_0063_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ020_0063_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ020_0063_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+        <tr>
+          <th>
+              <audio src="slt_part_1/ref_LJ021_0032_ref.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ021_0032_waveglow_base.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ021_0032_waveglow_gst.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ021_0032_waveglow_lm.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_1/LJ021_0032_waveglow_order.wav" controls=""></audio>
+          </th>
+        </tr>
+  </tbody></table>
+
+  <h3>
+      Naturalness of utterances heard in context
+  </h3>
+
+
+  </table>
+
+
+  <div style="padding-top:16px;">"When the man reached Jefferson, he turned right and headed west. <b> Reynolds and Patterson decided to follow him."</b></div>
+  <table align="center">
+    <tr>
+        <th>Reference</th>
+        <th>Next Task</th>
+        <th>ACE only</th>
+        <th>Next Task (random context)</th>
+    </tr>
+
+      <tbody>
+        <th>
+            <audio src="slt_part_2/reference_second_halves_LJ037_0129.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/lm_oracle_correct_context_115k_LJ037_0129.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/gst_oracle_correct_context_95k_LJ037_0129.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/lm_oracle_random_context_115k_LJ037_0129.wav" controls=""></audio>
+        </th>
+      </tr>
+  </table>
+
+  <div style="padding-top:16px;">"Description of Shooting: <b>Patrolman J. D. Tippit joined the Dallas Police Department in July nineteen fifty-two."</b></div>
+  <table align="center">
+    <tr>
+        <th>Reference</th>
+        <th>Next Task</th>
+        <th>ACE only</th>
+        <th>Next Task (random context)</th>
+    </tr>
+
+      <tbody>
+        <th>
+            <audio src="slt_part_2/reference_second_halves_LJ036_0193.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/lm_oracle_correct_context_115k_LJ036_0193.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/gst_oracle_correct_context_95k_LJ036_0193.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/lm_oracle_random_context_115k_LJ036_0193.wav" controls=""></audio>
+        </th>
+      </tr>
+  </table>
+
+  <div style="padding-top:16px;">"David Knapp, aged eighteen, was Number two;<b> Lee Oswald was Number three"</b></div>
+  <table align="center">
+    <tr>
+        <th>Reference</th>
+        <th>Next Task</th>
+        <th>ACE only</th>
+        <th>Next Task (random context)</th>
+    </tr>
+
+      <tbody>
+        <th>
+            <audio src="slt_part_2/reference_second_halves_LJ036_0115.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/lm_oracle_correct_context_115k_LJ036_0115.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/gst_oracle_correct_context_95k_LJ036_0115.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/lm_oracle_random_context_115k_LJ036_0115.wav" controls=""></audio>
+        </th>
+      </tr>
+  </table>
+
+  <div style="padding-top:16px;">"Whaley said that Oswald was the man under Number two. <b> Actually Oswald was under Number three."</b></div>
+  <table align="center">
+    <tr>
+        <th>Reference</th>
+        <th>Next Task</th>
+        <th>ACE only</th>
+        <th>Next Task (random context)</th>
+    </tr>
+
+      <tbody>
+        <th>
+            <audio src="slt_part_2/reference_second_halves_LJ036_0112.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/lm_oracle_correct_context_115k_LJ036_0112.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/gst_oracle_correct_context_95k_LJ036_0112.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/lm_oracle_random_context_115k_LJ036_0112.wav" controls=""></audio>
+        </th>
+      </tr>
+  </table>
+
+  <div style="padding-top:16px;">"Marsalis Street is seven blocks from Beckley. <b> Oswald lived at ten twenty-six North Beckley."</b></div>
+  <table align="center">
+    <tr>
+        <th>Reference</th>
+        <th>Next Task</th>
+        <th>ACE only</th>
+        <th>Next Task (random context)</th>
+    </tr>
+
+      <tbody>
+        <th>
+            <audio src="slt_part_2/reference_second_halves_LJ036_0064.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/lm_oracle_correct_context_115k_LJ036_0064.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/gst_oracle_correct_context_95k_LJ036_0064.wav" controls=""></audio>
+        </th>
+        <th>
+            <audio src="slt_part_2/lm_oracle_random_context_115k_LJ036_0064.wav" controls=""></audio>
+        </th>
+      </tr>
+  </table>
+
+    <div style="padding-top:16px;">"The man turned and walked back toward Baker. <b>He had been proceeding toward the rear of the lunchroom."</b></div>
+    <table align="center">
+      <tr>
+          <th>Reference</th>
+          <th>Next Task</th>
+          <th>ACE only</th>
+          <th>Next Task (random context)</th>
+      </tr>
+
+        <tbody>
+          <th>
+              <audio src="slt_part_2/reference_second_halves_LJ035_0053.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/lm_oracle_correct_context_115k_LJ035_0053.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/gst_oracle_correct_context_95k_LJ035_0053.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/lm_oracle_random_context_115k_LJ035_0053.wav" controls=""></audio>
+          </th>
+        </tr>
+    </table>
+
+    <div style="padding-top:16px;">"I seek to make American democracy succeed. <b> You and I will do our part."</b></div>
+    <table align="center">
+      <tr>
+          <th>Reference</th>
+          <th>Next Task</th>
+          <th>ACE only</th>
+          <th>Next Task (random context)</th>
+      </tr>
+
+        <tbody>
+          <th>
+              <audio src="slt_part_2/reference_second_halves_LJ024_0142.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/lm_oracle_correct_context_115k_LJ024_0142.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/gst_oracle_correct_context_95k_LJ024_0142.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/lm_oracle_random_context_115k_LJ024_0142.wav" controls=""></audio>
+          </th>
+        </tr>
+    </table>
+
+    <div style="padding-top:16px;">"There are many types of amendment proposed. <b> Each one is radically different from the other."</b></div>
+    <table align="center">
+      <tr>
+          <th>Reference</th>
+          <th>Next Task</th>
+          <th>ACE only</th>
+          <th>Next Task (random context)</th>
+      </tr>
+
+        <tbody>
+          <th>
+              <audio src="slt_part_2/reference_second_halves_LJ024_0090.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/lm_oracle_correct_context_115k_LJ024_0090.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/gst_oracle_correct_context_95k_LJ024_0090.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/lm_oracle_random_context_115k_LJ024_0090.wav" controls=""></audio>
+          </th>
+        </tr>
+    </table>
+
+    <div style="padding-top:16px;">"There is nothing novel or radical about this idea. <b> It seeks to maintain the federal bench in full vigor."</b></div>
+    <table align="center">
+      <tr>
+          <th>Reference</th>
+          <th>Next Task</th>
+          <th>ACE only</th>
+          <th>Next Task (random context)</th>
+      </tr>
+
+        <tbody>
+          <th>
+              <audio src="slt_part_2/reference_second_halves_LJ024_0020.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/lm_oracle_correct_context_115k_LJ024_0020.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/gst_oracle_correct_context_95k_LJ024_0020.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/lm_oracle_random_context_115k_LJ024_0020.wav" controls=""></audio>
+          </th>
+        </tr>
+    </table>
+
+    <div style="padding-top:16px;">"With national power, intended as they said, <b>"to form a more perfect union for ourselves and our posterity.""</b></div>
+    <table align="center">
+      <tr>
+          <th>Reference</th>
+          <th>Next Task</th>
+          <th>ACE only</th>
+          <th>Next Task (random context)</th>
+      </tr>
+
+        <tbody>
+          <th>
+              <audio src="slt_part_2/reference_second_halves_LJ023_0069.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/lm_oracle_correct_context_115k_LJ023_0069.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/gst_oracle_correct_context_95k_LJ023_0069.wav" controls=""></audio>
+          </th>
+          <th>
+              <audio src="slt_part_2/lm_oracle_random_context_115k_LJ023_0069.wav" controls=""></audio>
+          </th>
+        </tr>
+    </table>
 
 </body></html>
